@@ -1,0 +1,22 @@
+{
+  "peliculas": [
+    {
+      "titulo": "Los mercenarios",
+      "vista": true
+    },
+    {
+      "titulo": "Frozen 2",
+      "vista": false
+    }
+  ],
+  "series": [
+    {
+      "titulo": "Game of thrones",
+      "vista": true
+    },
+    {
+      "titulo": "Banshee",
+      "vista": false
+    }
+  ]
+}
