@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>New Coche</title>
+</head>
+<body>
+  <%- include('./shared/nav.ejs') %>
+  <form action="/new-coche" method="POST">
+    <div>
+      <label for="marca">Marca:</label>
+      <input type="text" id="marca" name="marca" value="">
+    </div>
+    <div>
+      <label for="modelo">Modelo:</label>
+      <input type="text" id="modelo" name="modelo" value="">
+    </div>
+    <div>
+      <label for="color">Color:</label>
+      <input type="text" id="color" name="color" value="">
+    </div>
+    <div>
+      <label for="imagen">URL Imagen:</label>
+      <input type="text" id="imagen" name="imagen" value="">
+    </div>
+    <button type="submit">Guardar</button>
+  </form>
+</body>
+</html>
