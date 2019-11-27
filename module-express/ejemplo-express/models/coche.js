@@ -14,9 +14,9 @@ class Coche {
     return new Promise((resolve, reject) => {
       Coche.getCoches()
         .then(coches => {
-          this.id = coches.length;
+          this.id = (coches.length + 1).toString();
           const newCoches = [...coches, this];
-          fs.writeFile(path.join('data', 'coches.json'), JSON.stringify(newCoches), (err) => {
+          fs.writeFile(path.join('data', 'coches.json'), JSON.stringify(newCoches, null, 2), (err) => {
             if (err) {
               reject(err);
               return;
@@ -31,7 +31,8 @@ class Coche {
     return new Promise((resolve, reject) => {
       Coche.getCoches()
         .then(coches => {
-          const coche = coches.find(c => c.id == id);
+          // console.log(typeof(coches[1].id), typeof(id))
+          const coche = coches.find(c => c.id === id);
           if (coche) {
             resolve(coche);
           } else {

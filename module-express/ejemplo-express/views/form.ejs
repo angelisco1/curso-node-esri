@@ -8,22 +8,22 @@
 </head>
 <body>
   <%- include('./shared/nav.ejs') %>
-  <form action="/new-coche" method="POST">
+  <form action="<% if (editando) { %>/edit-coche<% } else { %>/new-coche<% } %>" method="POST">
     <div>
       <label for="marca">Marca:</label>
-      <input type="text" id="marca" name="marca" value="">
+      <input type="text" id="marca" name="marca" value="<% if (editando) { %><%= coche.marca %><% } %>">
     </div>
     <div>
       <label for="modelo">Modelo:</label>
-      <input type="text" id="modelo" name="modelo" value="">
+      <input type="text" id="modelo" name="modelo" value="<% if (editando) { %><%= coche.modelo %><% } %>">
     </div>
     <div>
       <label for="color">Color:</label>
-      <input type="text" id="color" name="color" value="">
+      <input type="text" id="color" name="color" value="<% if (editando) { %><%= coche.color %><% } %>">
     </div>
     <div>
       <label for="imagen">URL Imagen:</label>
-      <input type="text" id="imagen" name="imagen" value="">
+      <input type="text" id="imagen" name="imagen" value="<% if (editando) { %><%= coche.imagen %><% } %>">
     </div>
     <button type="submit">Guardar</button>
   </form>

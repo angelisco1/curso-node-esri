@@ -14,10 +14,12 @@ router.get('/new-coche', cochesController.getFormCoche);
 // POST /new-coche
 router.post('/new-coche', cochesController.addCoche);
 
-
 // GET /edit-coche/:cocheId
+router.get('/edit-coche/:cocheId', cochesController.getEditFormCoche)
 // POST /edit-coche
+router.post('/edit-coche', cochesController.updateCoche)
 
 // POST /delete-coche
+router.post('/delete-coche', cochesController.deleteCoche)
 
 module.exports = router;

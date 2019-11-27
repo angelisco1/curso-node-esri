@@ -15,6 +15,9 @@ getCoche = (req, res, next) => {
   Coche.getCoche(cocheId)
     .then(coche => {
       console.log(coche);
+      res.render('coche', {
+        coche
+      })
     })
 }
 
@@ -35,9 +38,32 @@ addCoche = (req, res, next) => {
     });
 }
 
+getEditFormCoche = (req, res, next) => {
+  const cocheId = req.params.cocheId
+  Coche.getCoche(cocheId)
+    .then(coche => {
+      console.log(coche);
+      res.render('form', {
+        coche,
+        editando: true
+      })
+    })
+}
+
+updateCoche = (req, res, next) => {
+
+}
+
+deleteCoche = (req, res, next) => {
+
+}
+
 module.exports = {
   getCoches,
   getFormCoche,
   addCoche,
   getCoche,
+  getEditFormCoche,
+  updateCoche,
+  deleteCoche,
 }
