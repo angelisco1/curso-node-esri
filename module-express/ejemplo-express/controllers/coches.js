@@ -22,7 +22,9 @@ getCoche = (req, res, next) => {
 }
 
 getFormCoche = (req, res, next) => {
-  res.render('form');
+  res.render('form', {
+    editando: false
+  });
 }
 
 addCoche = (req, res, next) => {

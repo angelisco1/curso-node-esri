@@ -3,6 +3,8 @@ const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
 
+const connectToMongo = require('./helpers/database').connectToMongo
+
 const routerCoches = require('./routes/coches');
 
 const app = express();
@@ -13,6 +15,7 @@ app.set('views', 'views');
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
 
 app.use((req, res, next) => {
   console.log({method: req.method, url: req.url});
@@ -27,6 +30,10 @@ app.use((req, res, next) => {
 
 const server = http.createServer(app);
 
-server.listen(3000, () => {
-  console.log('Listening in localhost:3000...');
-})
+connectToMongo(
+  () => {
+    server.listen(3000, () => {
+      console.log('Listening in localhost:3000...');
+    })
+  }
+)

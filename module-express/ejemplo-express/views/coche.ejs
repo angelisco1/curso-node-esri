@@ -11,11 +11,11 @@
   <h2><%= coche.marca %> <%= coche.modelo %></h2>
   <img src="<%= coche.imagen %>" alt="">
 
-  <form action="/edit-coche/<%= coche.id %>" method="GET">
+  <form action="/edit-coche/<%= coche._id %>" method="GET">
     <button type="submit">Editar</button>
   </form>
   <form action="/delete-coche" method="POST">
-    <input type="hidden" name="cocheId" value="<%= coche.id %>">
+    <input type="hidden" name="cocheId" value="<%= coche._id %>">
     <button type="submit">Eliminar</button>
   </form>
 </body>
