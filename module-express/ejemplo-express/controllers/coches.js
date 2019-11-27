@@ -51,11 +51,27 @@ getEditFormCoche = (req, res, next) => {
 }
 
 updateCoche = (req, res, next) => {
+  const { marca, modelo, imagen, color, cocheId } = req.body;
+  const cocheActualizado = new Coche(marca, modelo, imagen, color, cocheId);
 
+  cocheActualizado.guardar()
+    .then(() => {
+      res.redirect('/coches');
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 }
 
 deleteCoche = (req, res, next) => {
-
+  const cocheId = req.body.cocheId;
+  Coche.delete(cocheId)
+    .then(() => {
+      res.redirect('/coches');
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 }
 
 module.exports = {

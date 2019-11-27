@@ -1,12 +1,5 @@
 [
   {
-    "id": "1",
-    "marca": "Seat",
-    "modelo": "Ibiza",
-    "color": "blanco",
-    "imagen": "https://www.coches.com/fotos_historicas/seat/Ibiza/high_79553a7c21dd0eae46c9d916f00e8b59.jpg"
-  },
-  {
     "id": "2",
     "marca": "Seat",
     "modelo": "León",
@@ -21,10 +14,10 @@
     "id": "3"
   },
   {
-    "marca": "dsfdsf",
-    "modelo": "sfsd",
+    "marca": "Tesla",
+    "modelo": "R",
     "imagen": "https://www.autobild.es/sites/autobild.es/public/styles/main_element/public/dc/fotos/Tesla-Roadster-2020-C01.jpg?itok=GuqSY7c3",
-    "color": "dfdsf",
+    "color": "rojo",
     "id": "4"
   }
 ]

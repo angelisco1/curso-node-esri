@@ -14,8 +14,20 @@ class Coche {
     return new Promise((resolve, reject) => {
       Coche.getCoches()
         .then(coches => {
-          this.id = (coches.length + 1).toString();
-          const newCoches = [...coches, this];
+          let newCoches;
+
+          if (this.id) {
+            newCoches = coches.map(c => {
+              if (c.id === this.id) {
+                return this;
+              }
+              return c;
+            })
+          } else {
+            this.id = (coches.length + 1).toString();
+            newCoches = [...coches, this];
+          }
+
           fs.writeFile(path.join('data', 'coches.json'), JSON.stringify(newCoches, null, 2), (err) => {
             if (err) {
               reject(err);
@@ -51,6 +63,26 @@ class Coche {
         }
         resolve(JSON.parse(coches));
       })
+    })
+  }
+
+  static delete(id) {
+    return new Promise((resolve, reject) => {
+      Coche.getCoches()
+        .then(coches => {
+          const newCoches = coches.filter(c => {
+            return c.id !== id
+          })
+
+          fs.writeFile(path.join('data', 'coches.json'), JSON.stringify(newCoches, null, 2), (err) => {
+            if (err) {
+              reject(err);
+              return;
+            }
+            resolve();
+          })
+
+        })
     })
   }
 }

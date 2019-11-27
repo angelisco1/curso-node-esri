@@ -25,6 +25,9 @@
       <label for="imagen">URL Imagen:</label>
       <input type="text" id="imagen" name="imagen" value="<% if (editando) { %><%= coche.imagen %><% } %>">
     </div>
+    <% if (editando) { %>
+      <input type="hidden" name="cocheId" value="<%= coche.id %>">
+    <% } %>
     <button type="submit">Guardar</button>
   </form>
 </body>
